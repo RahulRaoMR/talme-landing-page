@@ -16,131 +16,87 @@ import {
   FaLightbulb,
   FaIndustry,
   FaTools,
-  FaCog
+  FaCog,
 } from "react-icons/fa";
+
+const serviceItems = [
+  { label: "Healthcare Services", Icon: FaHeartbeat },
+  { label: "IT Services", Icon: FaLaptopCode },
+  { label: "Mechanical Engineering Services", Icon: FaCogs },
+  { label: "Outsourcing and Offshoring Services", Icon: FaGlobe },
+  { label: "Product Life Cycle Management", Icon: FaBoxOpen },
+  { label: "Video Interviewing", Icon: FaVideo },
+  { label: "Robotic Process Automation", Icon: FaRobot },
+  { label: "Engineering Software Solutions", Icon: FaDesktop },
+  { label: "VLSI Services", Icon: FaMicrochip },
+  { label: "Automotive Services", Icon: FaCar },
+  { label: "Cloud Engineering Services", Icon: FaCloud },
+  { label: "Aerospace Engineering Services", Icon: FaRocket },
+  { label: "Business Solutions", Icon: FaLightbulb },
+  { label: "Oil and Gas Services", Icon: FaIndustry },
+  { label: "Original Equipment Manufacture (OEM)", Icon: FaTools },
+  { label: "Other Engineering Services", Icon: FaCog },
+];
 
 function Services() {
   return (
-    <section className="services">
-      <h2 className="services-heading">Our Services</h2>
+    <section className="services" id="home-services">
+      <div className="services-header">
+        <h2 className="services-heading">Our Services</h2>
+        <p>
+          End-to-end capabilities across engineering, digital, and workforce
+          operations for enterprise growth.
+        </p>
+      </div>
 
       <div className="services-grid">
+        {serviceItems.map(({ label, Icon }) => (
+          <article className="service-card" key={label}>
+            <span className="icon-wrap">
+              <Icon className="icon" />
+            </span>
+            <p>{label}</p>
+          </article>
+        ))}
+      </div>
 
-        <div className="service-card">
-          <FaHeartbeat className="icon" />
-          <p>Healthcare Services</p>
+      <div className="stats-section">
+        <div className="stat-box">
+          <h3>
+            <CountUp end={500} duration={3} enableScrollSpy scrollSpyOnce />+
+          </h3>
+          <p>Projects Completed</p>
         </div>
 
-        <div className="service-card">
-          <FaLaptopCode className="icon" />
-          <p>IT Services</p>
+        <div className="stat-box">
+          <h3>
+            <CountUp end={2} duration={3} enableScrollSpy scrollSpyOnce />
+          </h3>
+          <p>Global Offices</p>
         </div>
 
-        <div className="service-card">
-          <FaCogs className="icon" />
-          <p>Mechanical Engineering Services</p>
+        <div className="stat-box">
+          <h3>
+            <CountUp end={15} duration={3} enableScrollSpy scrollSpyOnce />+
+          </h3>
+          <p>Years of Experience</p>
         </div>
 
-        <div className="service-card">
-          <FaGlobe className="icon" />
-          <p>Outsourcing & Offshoring Services</p>
+        <div className="stat-box">
+          <h3>
+            <CountUp
+              end={1000}
+              duration={3}
+              separator=","
+              enableScrollSpy
+              scrollSpyOnce
+            />
+            +
+          </h3>
+          <p>Employees</p>
         </div>
-
-        <div className="service-card">
-          <FaBoxOpen className="icon" />
-          <p>Product Life Cycle Management</p>
-        </div>
-
-        <div className="service-card">
-          <FaVideo className="icon" />
-          <p>Video Interviewing</p>
-        </div>
-
-        <div className="service-card">
-          <FaRobot className="icon" />
-          <p>Robotic Process Automation</p>
-        </div>
-
-        <div className="service-card">
-          <FaDesktop className="icon" />
-          <p>Engineering Software Solutions</p>
-        </div>
-
-        <div className="service-card">
-          <FaMicrochip className="icon" />
-          <p>VLSI Services</p>
-        </div>
-
-        <div className="service-card">
-          <FaCar className="icon" />
-          <p>Automotive Services</p>
-        </div>
-
-        <div className="service-card">
-          <FaCloud className="icon" />
-          <p>Cloud Engineering Services</p>
-        </div>
-
-        <div className="service-card">
-          <FaRocket className="icon" />
-          <p>Aerospace Engineering Services</p>
-        </div>
-
-        <div className="service-card">
-          <FaLightbulb className="icon" />
-          <p>Business Solutions</p>
-        </div>
-
-        <div className="service-card">
-          <FaIndustry className="icon" />
-          <p>Oil & Gas Services</p>
-        </div>
-
-        <div className="service-card">
-          <FaTools className="icon" />
-          <p>Original Equipment Manufacture (OEM)</p>
-        </div>
-
-        <div className="service-card">
-  <FaCog className="icon" />
-  <p>Other Engineering Services</p>
-</div>
-
-</div>  {/* services-grid ends */}
-
-<div className="stats-section">
-
-  <div className="stat-box">
-    <h2>
-      <CountUp end={500} duration={3} enableScrollSpy scrollSpyOnce />+
-    </h2>
-    <p>Projects Completed</p>
-  </div>
-
-  <div className="stat-box">
-    <h2>
-      <CountUp end={2} duration={3} enableScrollSpy scrollSpyOnce />
-    </h2>
-    <p>Global Offices</p>
-  </div>
-
-  <div className="stat-box">
-    <h2>
-      <CountUp end={15} duration={3} enableScrollSpy scrollSpyOnce />+
-    </h2>
-    <p>Years Of Experience</p>
-  </div>
-
-  <div className="stat-box">
-    <h2>
-      <CountUp end={1000} duration={3} separator="," enableScrollSpy scrollSpyOnce />+
-    </h2>
-    <p>Employees</p>
-  </div>
-
-</div>
-
-</section>
+      </div>
+    </section>
   );
 }
 

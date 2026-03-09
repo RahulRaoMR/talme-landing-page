@@ -1,34 +1,93 @@
-.business-container{
-padding:60px 120px;
-background:#f7f5f1;
+.business-container {
+  --ink: #0b244a;
+  --ink-soft: #314e78;
+  --muted: #5a6f90;
+  --line: rgba(11, 36, 74, 0.12);
+  padding: clamp(40px, 6vw, 72px) min(6vw, 80px);
+  background:
+    radial-gradient(circle at 8% 10%, rgba(21, 86, 196, 0.14), transparent 34%),
+    linear-gradient(180deg, #f8fbff 0%, #eef3fb 100%);
 }
 
-.business-image{
-width:100%;
-max-height:350px;
-object-fit:cover;
-margin-bottom:40px;
+.business-title {
+  margin: 0 0 24px;
+  text-align: center;
+  color: var(--ink);
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: 0.2px;
 }
 
-.business-title{
-text-align:center;
-font-size:40px;
-color:#1d2d5c;
-margin-bottom:30px;
+.business-gallery {
+  width: min(1020px, 100%);
+  margin: 0 auto 26px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
 }
 
-.business-content{
-font-size:18px;
-line-height:1.8;
-color:#555;
+.business-gallery img {
+  width: 100%;
+  height: clamp(170px, 21vw, 220px);
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px rgba(12, 33, 67, 0.18);
 }
 
-.business-content h2{
-margin-top:40px;
-color:#1d2d5c;
+.business-content {
+  width: min(1020px, 100%);
+  margin: 0 auto;
+  padding: clamp(18px, 2.8vw, 34px);
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 14px 34px rgba(12, 33, 67, 0.12);
+  font-size: 16px;
+  line-height: 1.78;
+  color: var(--ink-soft);
 }
 
-.business-content ul{
-margin-left:20px;
-margin-top:10px;
+.business-content p {
+  margin: 0 0 14px;
+}
+
+.business-content h2 {
+  margin: 24px 0 10px;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
+
+.business-content ul {
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.business-content li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 7px;
+}
+
+.business-content li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1b5fcd;
+}
+
+@media (max-width: 900px) {
+  .business-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .business-content {
+    font-size: 15px;
+  }
 }
