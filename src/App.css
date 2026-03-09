@@ -1,0 +1,93 @@
+body{
+  overflow-x:hidden;
+}
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: (135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 80px 10%;
+}
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(0,245,255,0.4);
+}
+.navbar{
+  background:white;
+  padding:15px;
+}
+
+.navbar ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
+  font-weight:500;
+}
+
+.navbar li{
+  cursor:pointer;
+}
+
+/* Dropdown Panel */
+
+.services-panel{
+  background:#111;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:40px;
+}
+
+.service-card{
+  width:300px;
+  position:relative;
+}
+
+.service-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.service-card p{
+  color:white;
+  font-size:14px;
+  margin-top:10px;
+}
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 40px;
+}
+
+.logo img{
+  height:40px;
+}
+
+.navbar ul{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+.about{
+  padding:80px;
+  text-align:center;
+}
+
+.about h2{
+  font-size:36px;
+  margin-bottom:20px;
+}

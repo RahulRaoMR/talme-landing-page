@@ -1,0 +1,49 @@
+.hero {
+  padding: 120px 6% 100px;
+  background: linear-gradient(to bottom, #ffffff, #f8fafc);
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.hero-btn {
+  padding: 14px 32px;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+}
+.hero-content {
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

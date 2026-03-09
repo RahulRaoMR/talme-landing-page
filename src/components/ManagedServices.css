@@ -1,0 +1,47 @@
+.managed{
+padding:80px 10%;
+}
+
+.managed-title{
+font-size:32px;
+margin-bottom:40px;
+font-weight:600;
+}
+
+.managed-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:50px;
+}
+
+.managed-left{
+flex:1;
+}
+
+.service-box{
+margin-bottom:25px;
+}
+
+.service-box h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.learn-btn{
+background:#444;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:30px;
+cursor:pointer;
+}
+
+.managed-right{
+flex:1;
+}
+
+.managed-right img{
+width:100%;
+border-radius:10px;
+}

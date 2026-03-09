@@ -1,0 +1,38 @@
+.footer {
+  background:  red;
+  color: #ffffff;
+  padding: 80px 8%;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footer-column h4 {
+  font-size: 15px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.footer-column p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-column p:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #1f2937;
+  padding-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #9ca3af;
+}

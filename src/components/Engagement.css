@@ -1,0 +1,32 @@
+.engagement {
+  padding: 80px 10%;
+  background: #f9f9f9;
+}
+
+.engagement-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.engagement-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.engagement-card:hover {
+  transform: translateY(-8px);
+}
+
+.engagement-card h2 {
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.engagement-card p {
+  line-height: 1.6;
+  color: #555;
+}

@@ -1,0 +1,149 @@
+.contact-page {
+  width: min(1280px, 94%);
+  margin: 18px auto 40px;
+  color: #1f3554;
+}
+
+.contact-block {
+  margin-bottom: 36px;
+}
+
+.contact-city-title {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 20px;
+  font-size: 34px;
+  font-weight: 600;
+  color: #2f4570;
+}
+
+.contact-city-title::before,
+.contact-city-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #6f82a2;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.contact-details {
+  background: #ffffff;
+  padding: 16px 10px 0 4px;
+}
+
+.contact-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+  font-size: 36px;
+  font-weight: 500;
+  color: #2a426a;
+}
+
+.contact-heading::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #6f82a2;
+}
+
+.contact-intro {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1f2f4a;
+}
+
+.contact-note,
+.contact-address,
+.contact-hours {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #5c6f8f;
+}
+
+.contact-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 20px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #1e7b68;
+  letter-spacing: 0.1px;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-whatsapp svg {
+  font-size: 15px;
+}
+
+.contact-whatsapp:hover {
+  background: #186454;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(30, 123, 104, 0.25);
+}
+
+.contact-whatsapp:focus-visible {
+  outline: 2px solid #176f5e;
+  outline-offset: 2px;
+}
+
+.contact-company {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f3554;
+}
+
+.contact-hours-title {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f3554;
+}
+
+.contact-map-wrap {
+  min-height: 320px;
+}
+
+.contact-map {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 6px;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-city-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .contact-heading {
+    font-size: 24px;
+  }
+
+  .contact-map-wrap,
+  .contact-map {
+    height: 260px;
+    min-height: 260px;
+  }
+}
