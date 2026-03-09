@@ -42,6 +42,16 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/services"
+          element={
+            <>
+              <Hero />
+              <Engagement />
+              <Services />
+            </>
+          }
+        />
 
         {/* Managed Services Page */}
         <Route path="/managed-services" element={<ManagedServices />} />
@@ -49,6 +59,7 @@ function App() {
         <Route path="/services/:slug" element={<ServiceDetailPage />} />
         <Route path="/service-hub/:slug" element={<ServiceHubPage />} />
         <Route path="/business-services" element={<BusinessServices />} />
+        <Route path="/business-solutions" element={<BusinessServices />} />
         <Route path="/people-practice" element={<PeoplePractice />} />
 
         {/* About Page */}
@@ -59,6 +70,7 @@ function App() {
         <Route path="/insights/:slug" element={<InsightDetailPage />} />
         <Route path="/our-clients" element={<OurClientsPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/contact/:country" element={<ContactCountryPage />} />
 
 
