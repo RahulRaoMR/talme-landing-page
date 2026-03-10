@@ -1,0 +1,35 @@
+.legal-page {
+  background: #f3f7fd;
+  padding: 40px 16px 56px;
+}
+
+.legal-container {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #d8e1ef;
+  border-radius: 16px;
+  padding: clamp(20px, 3vw, 34px);
+  color: #243b60;
+}
+
+.legal-container h1 {
+  margin: 0 0 14px;
+  color: #0b244a;
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+}
+
+.legal-container h2 {
+  margin: 18px 0 8px;
+  color: #143b76;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+}
+
+.legal-container p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.legal-container p + p {
+  margin-top: 10px;
+}

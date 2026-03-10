@@ -39,8 +39,6 @@ function ClientAccountingServices() {
             co-create solutions by redefining risks, controls, key performance
             indicators, and segregation of duties.
           </p>
-          <h3>Chetan Venugopal</h3>
-          <small>Co-Founder and Board Member</small>
         </article>
 
         <aside className="cas-updates-card">
