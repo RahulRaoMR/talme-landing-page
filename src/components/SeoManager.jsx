@@ -38,7 +38,7 @@ const staticRouteMeta = {
   "/information-technology-services": {
     title: "Information Technology Services | Talme Technologies",
     description:
-      "Talme Technologies offers IT services including software development, system integration, and cloud solutions.",
+      "Talme Technologies provides IT services including software development, cloud solutions, system integration and enterprise consulting.",
   },
   "/engineering-solutions": {
     title: "Engineering Solutions | Talme Technologies",
@@ -83,7 +83,7 @@ const staticRouteMeta = {
   "/about-us": {
     title: "About Us | Talme Technologies",
     description:
-      "Learn about Talme Technologies, our delivery approach, and our engineering and staffing expertise.",
+      "Talme Technologies Pvt Ltd is a trusted engineering and IT services company providing staffing, consulting and digital transformation solutions.",
   },
   "/managed-services": {
     title: "Managed Services | Talme Technologies",

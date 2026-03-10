@@ -7,12 +7,14 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import SeoManager from "./components/SeoManager";
+import AboutUsPage from "./pages/AboutUsPage";
 import BusinessServices from "./pages/BusinessServices";
 import ClientAccountingServices from "./pages/ClientAccountingServices";
 import ContactPage from "./pages/ContactPage";
 import ContactCountryPage from "./pages/ContactCountryPage";
 import AssurancePage from "./pages/AssurancePage";
 import CareersPage from "./pages/CareersPage";
+import InformationTechnologyServicesPage from "./pages/InformationTechnologyServicesPage";
 import InsightDetailPage from "./pages/InsightDetailPage";
 import InsightsPage from "./pages/InsightsPage";
 import LegalPage from "./pages/LegalPage";
@@ -90,7 +92,7 @@ function App() {
         />
         <Route
           path="/information-technology-services"
-          element={<Navigate to="/services/computer-technology" replace />}
+          element={<InformationTechnologyServicesPage />}
         />
         <Route path="/service-hub/:slug" element={<ServiceHubPage />} />
         <Route path="/business-services" element={<BusinessServices />} />
@@ -105,7 +107,7 @@ function App() {
         <Route path="/insights/:slug" element={<InsightDetailPage />} />
         <Route path="/our-clients" element={<OurClientsPage />} />
         <Route path="/clients" element={<Navigate to="/our-clients" replace />} />
-        <Route path="/about-us" element={<Navigate to="/about" replace />} />
+        <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/legal" element={<LegalPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/contact-us" element={<ContactPage />} />
