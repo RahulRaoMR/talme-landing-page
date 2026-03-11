@@ -8,19 +8,17 @@ function Hero() {
         <div className="hero-content">
           <span className="hero-kicker">Engineering. Talent. Transformation.</span>
           <h1>TALME</h1>
-          <p className="hero-subhead">Corporate delivery engineered for visible outcomes.</p>
           <p>
-            TALME partners with ambitious enterprises to strengthen delivery,
-            accelerate execution, and build scalable operating models across
-            engineering, staffing, and digital transformation.
+            Corporate-grade engineering and staffing solutions built to improve
+            delivery speed, quality, and measurable business outcomes.
           </p>
 
           <div className="hero-actions">
             <Link to="/managed-services" className="hero-btn hero-btn-primary">
-              Explore Capabilities
+              Explore Services
             </Link>
             <Link to="/contact" className="hero-btn hero-btn-secondary">
-              Speak With TALME
+              Talk to Us
             </Link>
           </div>
 
@@ -42,22 +40,22 @@ function Hero() {
 
         <aside className="hero-panel">
           <div className="hero-panel-card hero-panel-card-primary">
-            <span className="hero-panel-label">Executive Snapshot</span>
-            <h2>Premium execution for enterprises that expect precision.</h2>
+            <span className="hero-panel-label">Delivery Focus</span>
+            <h2>Execution models built for scale, speed, and control.</h2>
             <p>
-              TALME blends engineering depth, structured governance, and
-              delivery discipline to support scale with confidence.
+              We combine engineering capability, workforce agility, and
+              governance-led delivery to support ambitious growth.
             </p>
           </div>
 
           <div className="hero-panel-grid">
             <article className="hero-panel-card">
-              <span className="hero-panel-metric">Boardroom Ready</span>
-              <p>Operational models built for control, reporting clarity, and stakeholder trust.</p>
+              <span className="hero-panel-metric">Fast Ramp-Up</span>
+              <p>Specialized teams aligned to delivery timelines and business goals.</p>
             </article>
             <article className="hero-panel-card">
-              <span className="hero-panel-metric">Global Reach</span>
-              <p>Cross-border support frameworks for high-growth and enterprise programs.</p>
+              <span className="hero-panel-metric">Visible Outcomes</span>
+              <p>KPI-led execution with stronger control, reporting, and quality.</p>
             </article>
           </div>
         </aside>

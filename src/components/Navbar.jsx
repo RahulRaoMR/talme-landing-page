@@ -113,10 +113,10 @@ function Navbar() {
               <Link to="/about">About Us</Link>
             </li>
             <li>
-              <Link to="/insights">Insights</Link>
+              <Link to="/our-clients">Our Clients</Link>
             </li>
             <li>
-              <Link to="/our-clients">Our Clients</Link>
+              <Link to="/insights">Insights</Link>
             </li>
             <li>
               <Link to="/careers">Careers</Link>

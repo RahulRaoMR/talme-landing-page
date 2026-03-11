@@ -5,6 +5,7 @@ import { servicePagesData } from "../data/servicePagesData";
 import { serviceHubDetails } from "../data/serviceHubData";
 
 const SITE_URL = "https://talme.in";
+const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
 
 const defaultMeta = {
   title: "Talme Technologies Pvt Ltd | Engineering Services",
@@ -12,6 +13,25 @@ const defaultMeta = {
     "Talme Technologies provides engineering services, IT consulting, and staffing solutions for global enterprises.",
   keywords:
     "Talme Technologies, engineering services, IT consulting, staffing solutions, automotive engineering, digital transformation",
+  image: DEFAULT_IMAGE,
+};
+
+const canonicalRouteMap = {
+  "/services": "/",
+  "/about-us": "/about",
+  "/clients": "/our-clients",
+  "/contact-us": "/contact",
+  "/business-solutions": "/services/business-solutions",
+  "/staff-augmentation": "/services/staff-augmentation",
+  "/engineering-solutions": "/services/engineering-solutions",
+  "/health-care-services": "/services/health-care-services",
+  "/computer-technology": "/services/computer-technology",
+  "/product-manufacturing": "/services/product-manufacturing",
+  "/oem-data": "/services/product-manufacturing",
+  "/automotive-data": "/services/engineering-solutions",
+  "/aerospace-data": "/services/engineering-solutions",
+  "/oil-gas-data": "/services/engineering-solutions",
+  "/information-technology-services": "/services/computer-technology",
 };
 
 const staticRouteMeta = {
@@ -125,6 +145,11 @@ const staticRouteMeta = {
     description:
       "Read Talme Technologies insights on engineering talent, operations, and digital transformation.",
   },
+  "/news-events": {
+    title: "News & Events | Talme Technologies",
+    description:
+      "Read daily news, announcements, and operating updates from Talme Technologies.",
+  },
   "/our-clients": {
     title: "Our Clients | Talme Technologies",
     description:
@@ -161,6 +186,10 @@ function setLinkTag(selector, rel, href) {
   element.setAttribute("href", href);
 }
 
+function getCanonicalPath(pathname) {
+  return canonicalRouteMap[pathname] || pathname;
+}
+
 function getDynamicRouteMeta(pathname) {
   if (pathname.startsWith("/services/")) {
     const slug = pathname.replace("/services/", "");
@@ -169,6 +198,7 @@ function getDynamicRouteMeta(pathname) {
       return {
         title: `${service.title} | Talme Technologies`,
         description: service.intro,
+        image: DEFAULT_IMAGE,
       };
     }
   }
@@ -180,6 +210,7 @@ function getDynamicRouteMeta(pathname) {
       return {
         title: `${service.title} | Talme Technologies`,
         description: service.summary,
+        image: DEFAULT_IMAGE,
       };
     }
   }
@@ -191,6 +222,7 @@ function getDynamicRouteMeta(pathname) {
       return {
         title: `${insight.title} | Talme Insights`,
         description: insight.description,
+        image: insight.image || DEFAULT_IMAGE,
       };
     }
   }
@@ -200,6 +232,7 @@ function getDynamicRouteMeta(pathname) {
       title: "Contact Location | Talme Technologies",
       description:
         "Contact Talme Technologies for location-specific support and service inquiries.",
+      image: DEFAULT_IMAGE,
     };
   }
 
@@ -220,29 +253,18 @@ function SeoManager() {
       staticRouteMeta[pathname] || getDynamicRouteMeta(pathname) || defaultMeta;
     const title = routeMeta.title || defaultMeta.title;
     const description = routeMeta.description || defaultMeta.description;
-    const canonicalUrl = `${SITE_URL}${pathname === "/" ? "" : pathname}`;
+    const image = routeMeta.image || defaultMeta.image;
+    const canonicalPath = getCanonicalPath(pathname);
+    const canonicalUrl = `${SITE_URL}${canonicalPath === "/" ? "" : canonicalPath}`;
+    const robots = canonicalPath !== pathname ? "noindex,follow" : "index,follow";
 
     document.title = title;
     setMetaAttribute('meta[name="description"]', "name", "description");
     setMetaAttribute('meta[name="description"]', "content", description);
     setMetaAttribute('meta[name="keywords"]', "name", "keywords");
     setMetaAttribute('meta[name="keywords"]', "content", defaultMeta.keywords);
-    setMetaAttribute('meta[name="application-name"]', "name", "application-name");
-    setMetaAttribute(
-      'meta[name="application-name"]',
-      "content",
-      "Talme Technologies"
-    );
-    setMetaAttribute(
-      'meta[name="apple-mobile-web-app-title"]',
-      "name",
-      "apple-mobile-web-app-title"
-    );
-    setMetaAttribute(
-      'meta[name="apple-mobile-web-app-title"]',
-      "content",
-      "Talme Technologies"
-    );
+    setMetaAttribute('meta[name="robots"]', "name", "robots");
+    setMetaAttribute('meta[name="robots"]', "content", robots);
 
     setMetaAttribute('meta[property="og:title"]', "property", "og:title");
     setMetaAttribute('meta[property="og:title"]', "content", title);
@@ -262,6 +284,8 @@ function SeoManager() {
     );
     setMetaAttribute('meta[property="og:type"]', "property", "og:type");
     setMetaAttribute('meta[property="og:type"]', "content", "website");
+    setMetaAttribute('meta[property="og:image"]', "property", "og:image");
+    setMetaAttribute('meta[property="og:image"]', "content", image);
 
     setMetaAttribute('meta[name="twitter:card"]', "name", "twitter:card");
     setMetaAttribute('meta[name="twitter:card"]', "content", "summary");
@@ -273,6 +297,8 @@ function SeoManager() {
       "twitter:description"
     );
     setMetaAttribute('meta[name="twitter:description"]', "content", description);
+    setMetaAttribute('meta[name="twitter:image"]', "name", "twitter:image");
+    setMetaAttribute('meta[name="twitter:image"]', "content", image);
 
     setLinkTag('link[rel="canonical"]', "canonical", canonicalUrl);
   }, [location.pathname]);

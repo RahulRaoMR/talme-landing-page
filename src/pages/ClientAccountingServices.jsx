@@ -1,6 +1,9 @@
+import { useState } from "react";
 import "./ClientAccountingServices.css";
 
 function ClientAccountingServices() {
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <main className="cas-premium-page">
       <section className="cas-premium-header">
@@ -24,6 +27,47 @@ function ClientAccountingServices() {
             for growth through process discipline and smart automation.
           </p>
         </article>
+      </section>
+
+      <section className="cas-content-grid">
+        <article className="cas-quote-card">
+          <span className="cas-quote-mark">\"</span>
+          <p>
+            We assess the current finance workflow end to end, identify control
+            gaps and reporting bottlenecks, and rebuild the model around
+            stronger governance, cleaner data, and measurable performance.
+          </p>
+        </article>
+
+        <aside className="cas-updates-card">
+          <h4>Updates</h4>
+          <h5>Finance Operations Reimagined for Better Visibility</h5>
+          <p>
+            A well-structured accounting function improves turnaround time,
+            strengthens compliance readiness, and supports more confident
+            decision-making.
+          </p>
+          {showMore && (
+            <div className="cas-updates-more">
+              <p>
+                Our delivery model aligns people, process, and systems so
+                finance teams can operate with consistency and control.
+              </p>
+              <ul>
+                <li>Process standardization across accounting workflows</li>
+                <li>Control and compliance monitoring support</li>
+                <li>Documentation, review cycles, and policy alignment</li>
+              </ul>
+            </div>
+          )}
+          <button
+            type="button"
+            className="cas-read-more"
+            onClick={() => setShowMore((prev) => !prev)}
+          >
+            {showMore ? "Read Less" : "Read More"}
+          </button>
+        </aside>
       </section>
 
       <section className="cas-sections">
