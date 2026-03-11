@@ -263,6 +263,22 @@ function SeoManager() {
     setMetaAttribute('meta[name="description"]', "content", description);
     setMetaAttribute('meta[name="keywords"]', "name", "keywords");
     setMetaAttribute('meta[name="keywords"]', "content", defaultMeta.keywords);
+    setMetaAttribute('meta[name="application-name"]', "name", "application-name");
+    setMetaAttribute(
+      'meta[name="application-name"]',
+      "content",
+      "Talme Technologies"
+    );
+    setMetaAttribute(
+      'meta[name="apple-mobile-web-app-title"]',
+      "name",
+      "apple-mobile-web-app-title"
+    );
+    setMetaAttribute(
+      'meta[name="apple-mobile-web-app-title"]',
+      "content",
+      "Talme Technologies"
+    );
     setMetaAttribute('meta[name="robots"]', "name", "robots");
     setMetaAttribute('meta[name="robots"]', "content", robots);
 
