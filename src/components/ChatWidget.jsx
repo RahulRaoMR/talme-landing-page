@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./ChatWidget.css";
 
+const TALME_CONTACT_EMAIL = "hr@talme.in";
+
 function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [view, setView] = useState("inbox");
@@ -36,7 +38,9 @@ function ChatWidget() {
     setSubmitState({ status: "sending", message: "Sending your message..." });
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/hr@talme.in", {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${TALME_CONTACT_EMAIL}`,
+        {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +53,8 @@ function ChatWidget() {
           _captcha: "false",
           _template: "table",
         }),
-      });
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to submit");
@@ -57,7 +62,7 @@ function ChatWidget() {
 
       setSubmitState({
         status: "success",
-        message: "Message sent successfully. Our HR team will contact you soon.",
+        message: "Message sent successfully. Our TALME team will contact you soon.",
       });
       setFormData({
         name: "",

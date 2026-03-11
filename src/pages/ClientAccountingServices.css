@@ -59,110 +59,6 @@
   line-height: 1.35;
 }
 
-.cas-content-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 16px;
-  padding: 20px;
-}
-
-.cas-quote-card,
-.cas-updates-card {
-  border: 1px solid var(--line);
-  background: #ffffff;
-  padding: 18px;
-}
-
-.cas-quote-mark {
-  display: inline-block;
-  color: #1a4d9a;
-  font-size: 3rem;
-  line-height: 1;
-}
-
-.cas-quote-card p {
-  margin: 8px 0 16px;
-  color: var(--ink-soft);
-  font-size: 1.28rem;
-  line-height: 1.52;
-}
-
-.cas-quote-card h3 {
-  margin: 0;
-  color: var(--ink);
-  font-size: 1.05rem;
-}
-
-.cas-quote-card small {
-  color: #5c7193;
-}
-
-.cas-updates-card h4 {
-  margin: 0;
-  color: #1a4d9a;
-  text-transform: uppercase;
-  letter-spacing: 0.45px;
-  font-size: 0.75rem;
-}
-
-.cas-updates-card h5 {
-  margin: 10px 0 8px;
-  color: var(--ink);
-  font-size: 1.35rem;
-}
-
-.cas-updates-card p {
-  margin: 0;
-  color: var(--ink-soft);
-  line-height: 1.66;
-}
-
-.cas-updates-card .cas-read-more {
-  display: inline-block;
-  margin-top: 12px;
-  border: 2px solid #06234f;
-  border-radius: 4px;
-  background: #0c3f8f;
-  color: #ffffff;
-  padding: 8px 14px;
-  font-size: 0.98rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.cas-updates-more {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid #ced8e7;
-}
-
-.cas-updates-more p {
-  margin: 0 0 8px;
-}
-
-.cas-updates-more ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.cas-updates-more li {
-  position: relative;
-  padding-left: 16px;
-  margin-bottom: 6px;
-  color: var(--ink-soft);
-}
-
-.cas-updates-more li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 9px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #1a4d9a;
-}
 
 .cas-sections {
   display: grid;
@@ -218,8 +114,7 @@
   }
 
   .cas-premium-header,
-  .cas-feature-band,
-  .cas-content-grid {
+  .cas-feature-band {
     grid-template-columns: 1fr;
     display: grid;
   }
@@ -228,9 +123,6 @@
     min-height: 220px;
   }
 
-  .cas-quote-card p {
-    font-size: 1.02rem;
-  }
 }
 
 @media (max-width: 560px) {
@@ -259,20 +151,12 @@
     font-size: 1rem;
   }
 
-  .cas-content-grid,
   .cas-sections {
     padding: 12px;
   }
 
-  .cas-quote-card,
-  .cas-updates-card,
   .cas-sections article {
     padding: 12px;
-  }
-
-  .cas-read-more {
-    font-size: 0.86rem;
-    padding: 7px 11px;
   }
 }
 

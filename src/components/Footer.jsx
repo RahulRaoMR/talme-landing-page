@@ -2,48 +2,82 @@ import "./Footer.css";
 import { FaWhatsapp, FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+const footerSections = [
+  {
+    heading: "MANAGED SERVICES",
+    links: [
+      { to: "/client-accounting", label: "Client Accounting Services" },
+      { to: "/people-practice", label: "People Practice" },
+      { to: "/business-services", label: "Business Services" },
+      { to: "/service-hub/compliance-management", label: "Compliance Management" },
+    ],
+  },
+  {
+    heading: "ASSURANCE",
+    links: [
+      { to: "/service-hub/audit-services", label: "Audit Services" },
+      { to: "/service-hub/accounting-advisory", label: "Accounting Advisory" },
+      { to: "/service-hub/quality-enablement", label: "Quality Enablement" },
+    ],
+  },
+  {
+    heading: "RISK ADVISORY",
+    links: [
+      { to: "/service-hub/internal-audit", label: "Internal Audit" },
+      { to: "/service-hub/sox-compliance", label: "SOX Compliance" },
+      { to: "/service-hub/technology-risk", label: "Technology Risk" },
+      { to: "/service-hub/process-transformation", label: "Process Transformation" },
+    ],
+  },
+  {
+    heading: "CONSULTING",
+    links: [
+      { to: "/service-hub/financial-advisory", label: "Financial Advisory" },
+      { to: "/service-hub/startup-advisory", label: "Startup Advisory" },
+      { to: "/service-hub/bpm-solutions", label: "BPM Solutions" },
+      { to: "/service-hub/virtual-cfo-services", label: "Virtual CFO Services" },
+    ],
+  },
+  {
+    heading: "DIGITAL",
+    links: [
+      { to: "/service-hub/digital-enablement", label: "Digital Enablement" },
+      { to: "/service-hub/data-analytics", label: "Data Analytics" },
+      { to: "/service-hub/intelligent-automation", label: "Intelligent Automation" },
+      { to: "/service-hub/enterprise-solutions", label: "Enterprise Solutions" },
+    ],
+  },
+];
+
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-columns">
-        <div className="footer-column">
-          <h4>MANAGED SERVICES</h4>
-          <Link to="/client-accounting">Client Accounting Services</Link>
-          <Link to="/people-practice">People Practice</Link>
-          <Link to="/business-services">Business Services</Link>
-          <Link to="/service-hub/compliance-management">Compliance Management</Link>
-        </div>
+      <div className="footer-columns footer-columns-desktop">
+        {footerSections.map((section) => (
+          <div className="footer-column" key={section.heading}>
+            <h4>{section.heading}</h4>
+            {section.links.map((link) => (
+              <Link key={link.to} to={link.to}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        ))}
+      </div>
 
-        <div className="footer-column">
-          <h4>ASSURANCE</h4>
-          <Link to="/service-hub/audit-services">Audit Services</Link>
-          <Link to="/service-hub/accounting-advisory">Accounting Advisory</Link>
-          <Link to="/service-hub/quality-enablement">Quality Enablement</Link>
-        </div>
-
-        <div className="footer-column">
-          <h4>RISK ADVISORY</h4>
-          <Link to="/service-hub/internal-audit">Internal Audit</Link>
-          <Link to="/service-hub/sox-compliance">SOX Compliance</Link>
-          <Link to="/service-hub/technology-risk">Technology Risk</Link>
-          <Link to="/service-hub/process-transformation">Process Transformation</Link>
-        </div>
-
-        <div className="footer-column">
-          <h4>CONSULTING</h4>
-          <Link to="/service-hub/financial-advisory">Financial Advisory</Link>
-          <Link to="/service-hub/startup-advisory">Startup Advisory</Link>
-          <Link to="/service-hub/bpm-solutions">BPM Solutions</Link>
-          <Link to="/service-hub/virtual-cfo-services">Virtual CFO Services</Link>
-        </div>
-
-        <div className="footer-column">
-          <h4>DIGITAL</h4>
-          <Link to="/service-hub/digital-enablement">Digital Enablement</Link>
-          <Link to="/service-hub/data-analytics">Data Analytics</Link>
-          <Link to="/service-hub/intelligent-automation">Intelligent Automation</Link>
-          <Link to="/service-hub/enterprise-solutions">Enterprise Solutions</Link>
-        </div>
+      <div className="footer-accordion">
+        {footerSections.map((section) => (
+          <details className="footer-accordion-item" key={section.heading}>
+            <summary>{section.heading}</summary>
+            <div className="footer-accordion-links">
+              {section.links.map((link) => (
+                <Link key={link.to} to={link.to}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </details>
+        ))}
       </div>
 
       <div className="footer-social">
@@ -51,11 +85,15 @@ function Footer() {
           <FaWhatsapp />
         </a>
 
-        <a href="https://www.instagram.com/talme_tech?igsh=bm5nbXBydTAwdHNh" target="_blank" rel="noreferrer">
+        <a href="https://instagram.com/yourusername" target="_blank" rel="noreferrer">
           <FaInstagram />
         </a>
 
-        <a href="https://www.linkedin.com/company/talme-technologies/posts/?feedView=all" target="_blank" rel="noreferrer">
+        <a
+          href="https://www.linkedin.com/company/talme-technologies/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FaLinkedin />
         </a>
 

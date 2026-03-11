@@ -1,6 +1,8 @@
 import "./ContactPage.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+
+const TALME_CONTACT_EMAIL = "hr@talme.in";
 
 const officeLocations = [
   {
@@ -29,6 +31,17 @@ const officeLocations = [
 
 function ContactPage() {
   const { hash } = useLocation();
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    message: "",
+    consent: false,
+  });
+  const [submitState, setSubmitState] = useState({
+    status: "idle",
+    message: "",
+  });
 
   useEffect(() => {
     if (!hash) return;
@@ -37,6 +50,74 @@ function ContactPage() {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [hash]);
+
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!formData.consent) {
+      setSubmitState({
+        status: "error",
+        message: "Please confirm the privacy notice before sending.",
+      });
+      return;
+    }
+
+    setSubmitState({
+      status: "sending",
+      message: "Sending your message...",
+    });
+
+    try {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${TALME_CONTACT_EMAIL}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            company: formData.company,
+            email: formData.email,
+            message: formData.message,
+            _subject: `Website Contact Form from ${formData.name}`,
+            _captcha: "false",
+            _template: "table",
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
+
+      setSubmitState({
+        status: "success",
+        message: "Message sent successfully. Our TALME team will contact you soon.",
+      });
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        message: "",
+        consent: false,
+      });
+    } catch {
+      setSubmitState({
+        status: "error",
+        message: "Unable to send now. Please try again in a moment.",
+      });
+    }
+  };
 
   return (
     <main className="contact-premium-page">
@@ -79,18 +160,59 @@ function ContactPage() {
         <aside className="contact-right-col">
           <section className="contact-form-card">
             <h2>Get in touch with us</h2>
-            <form>
-              <input type="text" placeholder="Name*" />
-              <input type="text" placeholder="Company Name*" />
-              <input type="email" placeholder="Email*" />
-              <textarea placeholder="Message" rows={4} />
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name*"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="text"
+                name="company"
+                placeholder="Company Name*"
+                value={formData.company}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email*"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Message"
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
               <label className="contact-consent">
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  name="consent"
+                  checked={formData.consent}
+                  onChange={handleChange}
+                  required
+                />
                 <span>
                   I confirm, I have read and agree to TALME Privacy Notice.
                 </span>
               </label>
-              <button type="button">Send</button>
+              <button type="submit">
+                {submitState.status === "sending" ? "Sending..." : "Send"}
+              </button>
+              {submitState.status !== "idle" && (
+                <p className={`contact-submit-note ${submitState.status}`}>
+                  {submitState.message}
+                </p>
+              )}
             </form>
           </section>
 
@@ -106,7 +228,7 @@ function ContactPage() {
                   Whether you are a startup or a large enterprise, we have
                   solutions that can make a difference.
                 </p>
-                <a href="mailto:info@talme.in">info@talme.in</a>
+                <a href="mailto:hr@talme.in">hr@talme.in</a>
               </div>
             </div>
           </section>
